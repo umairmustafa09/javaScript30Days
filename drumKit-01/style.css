@@ -1,0 +1,27 @@
+html {
+  font-size: 10px;
+  background-color: teal;
+  background-size: cover;
+}
+
+.keys-container {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border: 2px solid black;
+  margin: 1px;
+  font-size: 1.5rem;
+  padding: 50px;
+  text-align: center;
+  color: white;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
