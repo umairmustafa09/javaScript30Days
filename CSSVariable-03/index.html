@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>CSS variables</title>
+		<style>
+			:root {
+				--base: #3e2762;
+				--spacing: 5px;
+				--blur: 0px;
+			}
+			body {
+				background-color: teal;
+			}
+			.top-container {
+				text-align: center;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			.image > img {
+				margin-top: 100px;
+				height: 200px;
+				width: 200px;
+				padding: var(--spacing);
+				background: var(--base);
+				filter: blur(var(--blur));
+			}
+
+			h1 {
+				color: var(--base);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top-container">
+			<h1>Update CSS Variable with JS</h1>
+			<div class="controls">
+				<label for="spacing">Spacing</label>
+				<input
+					type="range"
+					name="spacing"
+					min="5"
+					max="100"
+					value="5"
+					data-sizing="px"
+				/>
+
+				<label for="blur">blur</label>
+				<input
+					type="range"
+					name="blur"
+					min="0"
+					max="100"
+					value="0"
+					data-sizing="px"
+				/>
+
+				<label for="base">Color</label>
+				<input type="color" name="base" />
+			</div>
+			<div class="image">
+				<img src="./image/mountains.png" alt="mountains" />
+			</div>
+		</div>
+		<script>
+			const inputs = document.querySelectorAll('.controls input');
+
+			function eventHandler() {
+				const suffix = this.dataset.sizing || '';
+				document.documentElement.style.setProperty(
+					`--${this.name}`,
+					this.value + suffix
+				);
+				console.log(this.value);
+			}
+
+			inputs.forEach((input) => input.addEventListener('change', eventHandler));
+			inputs.forEach((input) =>
+				input.addEventListener('mousemove', eventHandler)
+			);
+		</script>
+	</body>
+</html>
