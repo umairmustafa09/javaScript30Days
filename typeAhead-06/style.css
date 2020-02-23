@@ -1,0 +1,23 @@
+body {
+	display: flex;
+}
+.container {
+	height: 60px;
+	flex: 1;
+	font-size: 50px;
+	text-align: center;
+	outline: none;
+}
+
+.search {
+	width: 100%;
+	text-align: center;
+}
+
+.list {
+	list-style-type: none;
+}
+
+.list li {
+	text-decoration: underline;
+}
