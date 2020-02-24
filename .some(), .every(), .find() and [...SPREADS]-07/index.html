@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>.some(), .every(), .find() and [...SPREADS]</title>
+	</head>
+	<body>
+		<script>
+			const people = [
+				{ year: 2000, gender: 'male' },
+				{ year: 2020, gender: 'male' },
+				{ year: 2010, gender: 'male' },
+				{ year: 2015, gender: 'male' },
+				{ year: 2016, gender: 'male' }
+			];
+			const comments = [
+				{ text: 'this is first text', id: 543231 },
+				{ text: 'this is second text', id: 12345 },
+				{ text: 'this is third text', id: 98765 },
+				{ text: 'this is fourth text', id: 42315 },
+				{ text: 'this is fifth text', id: 546778 }
+			];
+
+			//some function
+			const isAdult = people.some(
+				(person) => new Date().getFullYear() - person.year >= 19
+			);
+			console.log({ isAdult });
+
+			//every function
+			const allAdult = people.every(
+				(person) => new Date().getFullYear() - person.year >= 19
+			);
+			console.log({ allAdult });
+
+			//find function
+			const comment = comments.find((comment) => comment.id === 98765);
+			console.log(comment);
+
+			//findIndex function
+			const index = comments.findIndex((comment) => comment.id === 98765);
+			console.log(index);
+
+			//splice function
+			// comments.splice(index, 1);
+
+			//spread operator function
+			const newComments = [
+				...comments.slice(0, index),
+				...comments.slice(index + 1)
+			];
+			console.table(newComments);
+		</script>
+	</body>
+</html>
