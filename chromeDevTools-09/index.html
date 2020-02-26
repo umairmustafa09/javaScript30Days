@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title>Chrome Dev Tools</title>
+	</head>
+	<body>
+		<p onclick="makeGreen()">Break Down</p>
+		<script>
+			const students = [
+				{ name: 'albert', age: 23 },
+				{ name: 'jhon', age: 22 }
+			];
+
+			function makeGreen() {
+				const para = document.querySelector('p');
+				para.style.color = 'blue';
+				para.style.fontSize = '100px';
+			}
+
+			//Clearing
+			console.clear();
+
+			//Regular
+			console.log('hello');
+
+			//Interpolated
+			console.log('hello i am a %s string', '🦁');
+
+			//Styled
+			console.log(
+				'%c Hello i am some great text',
+				'font-size: 50px; background: red; text-shadow: 5px 5px 0 blue;'
+			);
+
+			//Warning
+			console.warn('This is warning');
+
+			//Error
+			console.error('oh no !');
+
+			//Info
+			console.info('This is for info');
+
+			//Testing
+			const p = document.querySelector('p');
+			console.assert(p.classList.contains('ouch'), 'This is wrong');
+
+			//Vewing DOM Elements
+			console.log(p);
+			console.dir(p);
+
+			//Grouping together
+			students.forEach((student) => {
+				console.groupCollapsed(`${student.name}`);
+				console.log(`this is ${student.name}`);
+				console.log(`${student.name} is years old ${student.age}`);
+				console.groupEnd(`${student.name}`);
+			});
+
+			//Counting
+			console.count('ibrar');
+			console.count('rahim');
+			console.count('khubaib');
+			console.count('khubaib');
+			console.count('ibrar');
+			console.count('khubaib');
+			console.count('rahim');
+			console.count('ibrar');
+			console.count('rahim');
+			console.count('ibrar');
+			console.count('rahim');
+			console.count('khubaib');
+
+			//Timming
+			console.time('fetching data');
+			fetch('https://api.github.com/users/umairmustafa09')
+				.then((data) => data.json())
+				.then((data) => {
+					console.timeEnd('fetching data');
+					console.log(data);
+				});
+
+			//Table
+			console.table(students);
+		</script>
+	</body>
+</html>
