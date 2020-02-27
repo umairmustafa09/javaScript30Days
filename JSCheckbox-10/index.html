@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>JS Checkbox</title>
+		<style>
+			body {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Check Boxes</h1>
+		<div class="inbox">
+			<input type="checkbox" name="vehicle1" value="Bike" />
+			<label for="vehicle1"> I have a bike</label><br />
+			<input type="checkbox" name="vehicle2" value="Car" />
+			<label for="vehicle2"> I have a car</label><br />
+			<input type="checkbox" name="vehicle3" value="Boat" />
+			<label for="vehicle3"> I have a boat</label><br />
+			<input type="checkbox" name="vehicle4" value="bicycle" />
+			<label for="vehicle4"> I have a bicycle</label><br />
+			<input type="checkbox" name="vehicle1" value="truck" />
+			<label for="vehicle1"> I have a truck</label><br />
+			<input type="checkbox" name="vehicle1" value="plane" />
+			<label for="vehicle1"> I have a plane</label><br />
+			<input type="checkbox" name="vehicle1" value="rikshawe" />
+			<label for="vehicle1"> I have a rikshaw</label><br />
+		</div>
+		<script>
+			const checkboxes = document.querySelectorAll(
+				'.inbox input[type="checkbox"]'
+			);
+
+			let lastChecked;
+
+			function handleClick(e) {
+				let inBetween = false;
+
+				if (e.shiftKey && this.checked) {
+					checkboxes.forEach((checkbox) => {
+						if (checkbox === this || checkbox === lastChecked)
+							inBetween = !inBetween;
+
+						if (inBetween) checkbox.checked = true;
+					});
+				}
+				lastChecked = this;
+			}
+
+			checkboxes.forEach((checkbox) => {
+				checkbox.addEventListener('click', handleClick);
+			});
+		</script>
+	</body>
+</html>
