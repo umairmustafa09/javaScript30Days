@@ -1,63 +1,38 @@
 <html>
 	<head>
 		<title>HTML5 Video Player</title>
-		<style>
-			.player video {
-				width: 500px;
-				height: 500px;
-				margin-top: -100px;
-			}
-			.progressBar {
-				width: 500px;
-			}
-		</style>
+		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
 		<div class="player">
+			<h1>Video Player</h1>
+			<h1>Touch on screen to play</h1>
 			<video
 				class="viewer"
 				src="./video/CGI Animated Short - Student Academy Award Winning 'PeckPocketed' by Kevin Herron - TheCGBros.mp4"
 			></video>
-			progressBar:
+			<br />
+			<p>progressBar:</p>
+			<br />
 			<input
 				type="range"
 				name="currentTime"
-				class="playerSliders progressBar"
+				class="sliders progressBar"
 				min="0"
 				max="100"
 			/>
 			<br />
-			Volume:
+			<p>Volume:</p>
+			<br />
 			<input
 				type="range"
 				name="volume"
-				class="playerSliders Volume"
+				class="sliders Volume"
 				min="0"
 				max="1"
 				step="0.05"
 			/>
 		</div>
-		<script>
-			const player = document.querySelector('.player');
-			const video = player.querySelector('.viewer');
-			const ranges = player.querySelectorAll('.playerSliders');
-
-			function handlerClick() {
-				const method = this.paused ? 'play' : 'pause';
-				video[method]();
-			}
-
-			function handlerChange(e) {
-				if (this.name === 'currentTime') this.max = video.duration;
-				const percent = parseFloat(this.value);
-				video[this.name] = percent;
-			}
-
-			video.addEventListener('click', handlerClick);
-			video.addEventListener('click', handlerClick);
-			ranges.forEach((range) =>
-				range.addEventListener('change', handlerChange)
-			);
-		</script>
+		<script src="./script.js"></script>
 	</body>
 </html>

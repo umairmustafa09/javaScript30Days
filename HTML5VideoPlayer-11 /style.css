@@ -1,0 +1,47 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+body h1 {
+	text-align: center;
+}
+p {
+	margin: 5px;
+}
+.player video {
+	float: 1;
+	width: 500px;
+	height: 500px;
+	margin-top: -100px;
+}
+.progressBar {
+	width: 500px;
+}
+.sliders {
+	-webkit-appearance: none;
+	height: 8px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+.sliders::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: #171d3b;
+	cursor: pointer;
+}
+
+.sliders::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: #171d3b;
+	cursor: pointer;
+}
