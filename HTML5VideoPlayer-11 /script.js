@@ -13,7 +13,7 @@ function handlerChange(e) {
 	video[this.name] = percent;
 }
 
-function moveProgressBar() {
+function progressBar() {
 	const progressBar = document.querySelector('.progressBar');
 	progressBar.max = video.duration;
 	progressBar.value = video.currentTime;
@@ -21,5 +21,5 @@ function moveProgressBar() {
 
 video.addEventListener('click', handlerClick);
 video.addEventListener('click', handlerClick);
-video.addEventListener('timeupdate', moveProgressBar);
+video.addEventListener('timeupdate', progressBar);
 ranges.forEach((range) => range.addEventListener('change', handlerChange));

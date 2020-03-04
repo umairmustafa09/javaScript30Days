@@ -24,7 +24,7 @@ p {
 	height: 8px;
 	background: #d3d3d3;
 	outline: none;
-	opacity: 0.7;
+	opacity: 0.8;
 	-webkit-transition: 0.2s;
 	transition: opacity 0.2s;
 }
