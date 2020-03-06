@@ -15,9 +15,13 @@
 			}
 			.slide {
 				border: 5px solid black;
+				transform: translateX(-100%);
+				opacity: 0;
 			}
 			.active {
-				transform: translateX(-100%);
+				transform: translateX(0%);
+				opacity: 1;
+				transition: all 0.5s;
 			}
 		</style>
 	</head>
@@ -133,6 +137,30 @@
 				maiores voluptatem eos asperiores omnis natus repellendus laborum
 				suscipit dolorum odio?
 			</p>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ab
+				vero corrupti dolores voluptatibus ea amet, reiciendis officiis commodi
+				maiores voluptatem eos asperiores omnis natus repellendus laborum
+				suscipit dolorum odio?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ab
+				vero corrupti dolores voluptatibus ea amet, reiciendis officiis commodi
+				maiores voluptatem eos asperiores omnis natus repellendus laborum
+				suscipit dolorum odio?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ab
+				vero corrupti dolores voluptatibus ea amet, reiciendis officiis commodi
+				maiores voluptatem eos asperiores omnis natus repellendus laborum
+				suscipit dolorum odio?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ab
+				vero corrupti dolores voluptatibus ea amet, reiciendis officiis commodi
+				maiores voluptatem eos asperiores omnis natus repellendus laborum
+				suscipit dolorum odio?
+			</p>
 		</div>
 		<script>
 			function debounce(func, wait = 20, immediate = true) {
@@ -156,6 +184,16 @@
 			function checkSlide(e) {
 				sliderImages.forEach((sliderImage) => {
 					sliderImage.classList.add('active');
+					const sliderInAt =
+						window.scrollY + window.innerHeight - sliderImage.height / 2;
+					const imageBottam = sliderImage.offsetTop + sliderImage.height;
+					const isHalfShown = sliderInAt > sliderImage.offsetTop;
+					const isNotScrollPast = window.scrollY < imageBottam;
+					if (isHalfShown && isNotScrollPast) {
+						sliderImage.classList.add('active');
+					} else {
+						sliderImage.classList.remove('active');
+					}
 				});
 			}
 
